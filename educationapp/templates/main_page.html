@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='main-page'>
+        <div class="one">
+            <h1>Электронное обучение</h1>
+        </div>
+        <div class="card main-page" style="width: 80%;">
+            <div class="card-header">
+                Учебные материалы
+            </div>
+            {% if sections %}
+            <ul class="list-group list-group-flush">
+                {% for section in sections %}
+                <li class="list-group-item">
+                    <a href="{% url 'educationsections:section' section.id %}">
+                        {{section.section_name}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class='noitems'>Нет разделов</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

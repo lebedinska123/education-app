@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if items %}
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">
+                            <h2>{{section_name}}</h2>
+                        </a>
+                        {% for item in items %}
+                            <a href="{% url 'educationsections:detail' section_id item.id %}" class="list-group-item list-group-item-action">{{item.title}}</a>
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <ul class="list-group">
+                        <li class="list-group-item disabled" aria-disabled="true">Фильтры</li>
+                        <li class="list-group-item dropdown">
+                            Авторы
+                            <ul class="dropdown-content list-group">
+                                {% for author in authors_list %}
+                                    <li class='list-group-item'>
+                                        <a href="{% url 'educationsections:author_filter' section_id author.author %}">{{author.author}}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="list-group-item dropdown">
+                            Даты
+                            <div class="list-group">
+                            <form 
+                                style = "padding: 10px;"
+                                method="POST" 
+                                action="{% url 'educationsections:date_filter' section_id %}"
+                            >
+                                    {% csrf_token %}
+                                    <p>Выберите дату: 
+                                        <input type="date" name="calendar">
+                                        <input type="hidden" name="flag" value="date">
+                                        <input 
+                                            style = "margin-top: 10px;" 
+                                            type="submit" 
+                                            class="btn btn-light" 
+                                            value=" Искать"
+                                        >
+                                    </p>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="list-group-item dropdown">
+                            Поиск по названию
+                            <form 
+                                action="{% url 'educationsections:title_filter' section_id %}"
+                                method="POST"
+                            >
+                                {% csrf_token %}
+                                <input type="text" name='title'>
+                                <input type="hidden" name="flag" value="title">
+                                <input 
+                                    style = "margin-top: 10px;" 
+                                    type="submit" 
+                                    class="btn btn-light" 
+                                    value=" Искать"
+                                >
+                            </form>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h2>{{section_name}}</h2>
+        <div>Ничего еще не добавлено в этот раздел</div>
+    {% endif %}
+    <div class='navigation'>
+        <a class = 'card-link' href="{% url 'educationsections:section' section_id%}">Вернуться обратно к списку</a>
+        <a href="{% url 'educationsections:index' %}" class="card-link">Вернуться на главную</a>
+    </div>
+{% endblock %}

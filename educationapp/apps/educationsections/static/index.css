@@ -1,0 +1,91 @@
+body {
+    margin: 0 auto;
+    padding: 5%;
+    background-color: #C0C0C0;
+}
+
+.card.info {
+    padding: 2%;
+    margin: 0 auto;
+}
+
+.card-title {
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    margin: -2%;
+    margin-bottom: 20px;
+}
+
+.card.main-page {
+    margin: 0 auto;
+}
+
+.navigation {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+.filter {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 2;
+}
+
+form.data_filter {
+  padding: 10px;
+  color: red;
+}
+
+/************************************************************************************************/
+.one {
+    padding: 50px 20px;
+    text-align: center;
+    margin: -5px;
+  }
+  .one h1 {
+    font-family: 'Righteous', cursive;
+    position: relative;
+    color: #3CA1D9; 
+    display: inline-block;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    font-size: 3em;
+    padding: 11px 60px;
+    margin: 0; 
+    line-height: 1;
+  }
+  .one h1:before, .one h1:after {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    background: repeating-linear-gradient(180deg, transparent, transparent 2px, #3CA1D9 2px, #3CA1D9 4px);
+  }
+  .one h1:before {left: 0;}
+  .one h1:after {right: 0;}
+  @media (max-width: 420px) {
+    .one h1 {font-size: 2em;}
+  }
+/*  */

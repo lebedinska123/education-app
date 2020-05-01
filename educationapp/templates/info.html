@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <div class="card info" style="width: 80%;">
+        <div class="card-body">
+            <h5 class="card-title">{{info.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Автор: {{info.author}}</h6>
+            <p class="card-text">{{info.description}}</p>
+            <hr>
+            <span>Ссылка на ресурс: </span>
+            <a href="{{info.url}}" target="_blank" class="card-link">{{info.url}}</a>
+            <br>
+            <span>Дата публикации: </span>
+            <span class="card-link">{{info.pub_date}}</span>
+        </div>
+      </div>
+        <div class='navigation'>
+            <a class = 'card-link' href="{% url 'educationsections:section' section_id%}">Вернуться обратно к списку</a>
+            <a href="{% url 'educationsections:index' %}" class="card-link">Вернуться на главную</a>
+        </div>
+{% endblock %}
