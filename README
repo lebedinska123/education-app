@@ -1,0 +1,3 @@
+It's simple app on Django. It consist of three pages, one page display which sections in the app.
+Second page display fist of items in the sectoin, for example all books in the section. This page also include filters by data, title and author.
+Third page display the describe of the item.
